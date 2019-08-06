@@ -5,18 +5,38 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {};
-    this.test=this.test.bind(this);
+    this.state = {menuSelected: ""};
+    this.logoFunction=this.logoFunction.bind(this);
+    this.homeFunction=this.homeFunction.bind(this);
+    this.aboutFunction=this.aboutFunction.bind(this);
+    this.findtalentFunction=this.findtalentFunction.bind(this);
+    this.loginFunction=this.loginFunction.bind(this);
   }
 
-test(){
-  console.log("working");
+logoFunction(){
+  this.setState({menuSelected: "logo"});
+};
+homeFunction(){
+  this.setState({menuSelected: "home"});
+}
+aboutFunction(){
+  this.setState({menuSelected: "about"});
+}
+findtalentFunction(){
+  this.setState({menuSelected: "findTalent"});
+}
+loginFunction(){
+  this.setState({menuSelected: "login"});
 }
 
 
 
   render() {
-    return <MenuBar functions={this.test} />;
+    return(
+    <div>
+    <MenuBar logoFunction={this.logoFunction} homeFunction={this.homeFunction} aboutFunction={this.aboutFunction} findtalentFunction={this.findtalentFunction} loginFunction={this.loginFunction} />;
+    </div> 
+    )
   }
 }
 
